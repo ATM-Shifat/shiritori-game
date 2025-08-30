@@ -13,11 +13,8 @@ function App() {
   
 
   const submit = async (data) => {
-    console.log(data)
-
     try{
-      const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${data.text}`)
-      console.log(response)
+      await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${data.text}`)
       if(data.next === 1){
         setFirstData([...firstData, data.text])
       }else{
